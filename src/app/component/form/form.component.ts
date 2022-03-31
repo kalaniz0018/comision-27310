@@ -8,10 +8,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class FormComponent implements OnInit {
 
-/*   personForm = new FormGroup({
-    nombre: new FormControl('', Validators.required),
-    apellido: new FormControl('', Validators.required)
-  }) */
+  /*
+   form: any */
 
   inputName?: string;
   inputSurName?: string;
@@ -19,9 +17,14 @@ export class FormComponent implements OnInit {
   inputPhone?: number;
 
   userForm = new FormGroup({});
-  
-  constructor(public fb: FormBuilder ) { }
- 
+
+  constructor(public fb: FormBuilder) { }
+  /*   myform = this.fb.group({
+      name: ['', Validators.required],
+      phone: ['', Validators.compose([Validators.minLength(10), Validators.maxLength(10)])],
+      email: ['', Validators.email],
+      address: ['', Validators.required]
+    }) */
   ngOnInit(): void {
     this.userForm = new FormGroup({
       name: new FormControl(null, Validators.required),
@@ -30,16 +33,12 @@ export class FormComponent implements OnInit {
       phone: new FormControl(null, [Validators.required, Validators.pattern('[0-9]+')]),
     })
   }
+  /*   clicked() {
+      this.form = this.myform.value
+      var name = this.myform.get('name')?.value;
+      console.log(name)
+    } */
 
 
-/*   formularioContacto = this.fb.group({
-    nombre:new FormControl  ('', [Validators.required]),
-    email: new FormControl  ('',  [Validators.required, Validators.email]),
-    mensaje:new FormControl ('', [Validators.required, Validators.maxLength(500)])
-  });
-
-   onSubmit(){
-    console.log(this.formularioContacto.value)
-  }  */
 
 }
